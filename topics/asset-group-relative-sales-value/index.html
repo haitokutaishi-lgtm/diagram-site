@@ -17,7 +17,8 @@
     .en-stem { font-family: ui-sans-serif, system-ui, sans-serif; border-left: 3px solid #64748b; padding-left: 1rem; margin: 0.75rem 0; color: #334155; font-size: 0.875rem; line-height: 1.65; }
     .worries-box { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px solid #d97706; border-radius: 1rem; padding: 1.25rem 1.5rem; margin: 1rem 0; }
     .dlg-row { display: grid; grid-template-columns: 4.25rem 1fr; gap: 0.85rem; align-items: start; margin: 1rem 0; }
-    .avatar-frame { border-radius: 0.75rem; width: 56px; height: 56px; margin: 0 auto; display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.75rem;}
+    .avatar-frame { border-radius: 0.75rem; width: 56px; height: 56px; margin: 0 auto; display: flex; align-items: center; justify-content: center; }
+    .avatar-frame svg { flex-shrink: 0; }
     .role-line { font-size: 0.7rem; font-weight: 700; margin-bottom: 0.35rem; }
     .student-bubble .role-line { color: #c2410c; }
     .coach-bubble .role-line { color: #1d4ed8; }
@@ -46,7 +47,7 @@
         <li><a href="#worries" class="text-blue-700 hover:underline">よくある悩み</a></li>
         <li><a href="#three" class="text-blue-700 hover:underline">まず覚える3つ</a></li>
         <li><a href="#reading" class="text-blue-700 hover:underline">計算の型</a></li>
-        <li><a href="#process" class="text-blue-700 hover:underline">悩みが解ける道筋</a></li>
+        <li><a href="#process" class="text-blue-700 hover:underline">悩みが解けるまで（対話）</a></li>
         <li><a href="#mc" class="text-blue-700 hover:underline">理解確認MC</a></li>
         <li><a href="#summary" class="text-blue-700 hover:underline">まとめ</a></li>
       </ul>
@@ -55,12 +56,12 @@
     <section id="worries" class="worries-box">
       <h2 class="text-lg font-bold text-amber-950 mb-3 flex items-center gap-2"><i data-lucide="coffee" class="w-5 h-5"></i> よくある悩み</h2>
       <div class="dlg-row">
-        <div class="avatar-col"><div class="avatar-frame bg-sky-50">受</div></div>
-        <div class="student-bubble mb-0"><p class="role-line">受講生</p><p class="text-sm">問題に<strong>売主の土地簿価</strong>が書いてあるので、それで土地だけ決めてしまう。</p></div>
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-sky-100 bg-sky-50 p-0" aria-hidden="true"><img src="avatars/takuma-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-top"></div></div>
+        <div class="student-bubble mb-0"><p class="role-line">たくま（受講生）</p><p class="text-sm">問題に<strong>売主の土地簿価</strong>が書いてあるので、それで土地だけ決めてしまう。</p></div>
       </div>
       <div class="dlg-row">
-        <div class="avatar-col"><div class="avatar-frame bg-slate-100 text-xs">コ</div></div>
-        <div class="coach-bubble mb-0"><p class="role-line">コーチ</p><p class="text-sm">買い手の取得原価の按分は<strong>自分側で見た各資産の相対FV</strong>。売主簿価は<strong>無関係</strong>であることが大半。</p></div>
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-slate-200 bg-slate-100 p-0" aria-hidden="true"><img src="avatars/aoi-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-center"></div></div>
+        <div class="coach-bubble mb-0"><p class="role-line">あおい先生（コーチ）</p><p class="text-sm">買い手の取得原価の按分は<strong>自分側で見た各資産の相対FV</strong>。売主簿価は<strong>無関係</strong>であることが大半。</p></div>
       </div>
       <div class="worries-inner">
         <ul class="text-sm list-disc list-inside space-y-1">
@@ -94,15 +95,27 @@
     </section>
 
     <section id="process" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
-      <h2 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="message-circle" class="w-6 h-6 text-rose-500"></i> 悩みが解ける道筋</h2>
-      <div class="persona-strip"><span><strong>受講生</strong>：土地が高いから土地に寄せたい。</span><span><strong>コーチ</strong>：比率は鑑定の合計で決める。</span></div>
-      <div class="dlg-row">
-        <div class="avatar-col"><div class="avatar-frame bg-sky-50">受</div></div>
-        <div class="student-bubble mb-0"><p class="role-line">受講生</p><p class="text-sm">仲介手数料や閉鎖コストは？</p></div>
+      <h2 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="message-circle" class="w-6 h-6 text-rose-500"></i> 悩みが解けるまで（対話）</h2>
+      <p class="text-sm text-slate-600 mb-3">先の「<strong>売主の簿価で土地だけ決めそうになる</strong>」という悩みに、会話で按分の芯を当てはめます。</p>
+      <div class="persona-strip">
+        <span><strong>受講生</strong>：数字は足し算なのに、どの金額を分子にするかで迷う。</span>
+        <span><strong>コーチ</strong>：買い手が払った<strong>一括価格</strong>を、<strong>自分たちの鑑定売価の比率</strong>で割るだけ。</span>
       </div>
       <div class="dlg-row">
-        <div class="avatar-col"><div class="avatar-frame bg-slate-100 text-xs">コ</div></div>
-        <div class="coach-bubble mb-0"><p class="role-line">コーチ</p><p class="text-sm">試験では<strong>取得に直接要したコスト</strong>を一括価格に足してから按分、または設問指示に従う。</p></div>
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-sky-100 bg-sky-50 p-0" aria-hidden="true"><img src="avatars/takuma-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-top"></div></div>
+        <div class="student-bubble mb-0"><p class="role-line">たくま（受講生）</p><p class="text-sm">問題に<strong>売主側の土地の帳簿価額</strong>が書いてある。土地の取得原価はそれを使う？</p></div>
+      </div>
+      <div class="dlg-row">
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-slate-200 bg-slate-100 p-0" aria-hidden="true"><img src="avatars/aoi-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-center"></div></div>
+        <div class="coach-bubble mb-0"><p class="role-line">あおい先生（コーチ）</p><p class="text-sm">典型は<strong>使わない</strong>。買い手の取得原価の按分は、土地・建物それぞれの<strong>鑑定（見積）売価</strong>の合計に対する割合で決める。売主の帳簿は<strong>背景説明</strong>か、別の落とし穴用のことが多い。</p></div>
+      </div>
+      <div class="dlg-row">
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-sky-100 bg-sky-50 p-0" aria-hidden="true"><img src="avatars/takuma-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-top"></div></div>
+        <div class="student-bubble mb-0"><p class="role-line">たくま（受講生）</p><p class="text-sm">仲介手数料みたいなのがついたら、按分の前に一括価格に足す？</p></div>
+      </div>
+      <div class="dlg-row">
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-slate-200 bg-slate-100 p-0" aria-hidden="true"><img src="avatars/aoi-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-center"></div></div>
+        <div class="coach-bubble mb-0"><p class="role-line">あおい先生（コーチ）</p><p class="text-sm">設問が「取得原価に含める」と言っているものは、<strong>一括の取得コストに足してから比率按分</strong>するのが無難。書いていなければその問題の指示に従う。</p></div>
       </div>
     </section>
 

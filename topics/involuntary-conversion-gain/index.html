@@ -17,7 +17,8 @@
     .en-stem { font-family: ui-sans-serif, system-ui, sans-serif; border-left: 3px solid #64748b; padding-left: 1rem; margin: 0.75rem 0; color: #334155; font-size: 0.875rem; line-height: 1.65; }
     .worries-box { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px solid #d97706; border-radius: 1rem; padding: 1.25rem 1.5rem; margin: 1rem 0; }
     .dlg-row { display: grid; grid-template-columns: 4.25rem 1fr; gap: 0.85rem; align-items: start; margin: 1rem 0; }
-    .avatar-frame { border-radius: 0.75rem; width: 56px; height: 56px; margin: 0 auto; display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.75rem;}
+    .avatar-frame { border-radius: 0.75rem; width: 56px; height: 56px; margin: 0 auto; display: flex; align-items: center; justify-content: center; }
+    .avatar-frame svg { flex-shrink: 0; }
     .role-line { font-size: 0.7rem; font-weight: 700; margin-bottom: 0.35rem; }
     .student-bubble .role-line { color: #c2410c; }
     .coach-bubble .role-line { color: #1d4ed8; }
@@ -43,7 +44,7 @@
         <li><a href="#worries" class="text-blue-700 hover:underline">よくある悩み</a></li>
         <li><a href="#three" class="text-blue-700 hover:underline">まず覚える3つ</a></li>
         <li><a href="#reading" class="text-blue-700 hover:underline">仕訳の骨格</a></li>
-        <li><a href="#process" class="text-blue-700 hover:underline">悩みが解ける道筋</a></li>
+        <li><a href="#process" class="text-blue-700 hover:underline">悩みが解けるまで（対話）</a></li>
         <li><a href="#mc" class="text-blue-700 hover:underline">理解確認MC</a></li>
         <li><a href="#summary" class="text-blue-700 hover:underline">まとめ</a></li>
       </ul>
@@ -52,12 +53,12 @@
     <section id="worries" class="worries-box">
       <h2 class="text-lg font-bold text-amber-950 mb-3 flex items-center gap-2"><i data-lucide="coffee" class="w-5 h-5"></i> よくある悩み</h2>
       <div class="dlg-row">
-        <div class="avatar-col"><div class="avatar-frame bg-sky-50">受</div></div>
-        <div class="student-bubble mb-0"><p class="role-line">受講生</p><p class="text-sm">新しい資産を<strong>いくらで買う予定か</strong>が書いてあって、それで gain を調整しそうになる。</p></div>
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-sky-100 bg-sky-50 p-0" aria-hidden="true"><img src="avatars/takuma-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-top"></div></div>
+        <div class="student-bubble mb-0"><p class="role-line">たくま（受講生）</p><p class="text-sm">新しい資産を<strong>いくらで買う予定か</strong>が書いてあって、それで gain を調整しそうになる。</p></div>
       </div>
       <div class="dlg-row">
-        <div class="avatar-col"><div class="avatar-frame bg-slate-100 text-xs">コ</div></div>
-        <div class="coach-bubble mb-0"><p class="role-line">コーチ</p><p class="text-sm">典型問題では<strong>受け取った補償と帳簿価額</strong>の差が gain の中心。再取得は<strong>別トランザクション</strong>として読むことが多い。</p></div>
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-slate-200 bg-slate-100 p-0" aria-hidden="true"><img src="avatars/aoi-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-center"></div></div>
+        <div class="coach-bubble mb-0"><p class="role-line">あおい先生（コーチ）</p><p class="text-sm">典型問題では<strong>受け取った補償と帳簿価額</strong>の差が gain の中心。再取得は<strong>別トランザクション</strong>として読むことが多い。</p></div>
       </div>
       <div class="worries-inner">
         <ul class="text-sm list-disc list-inside space-y-1">
@@ -73,7 +74,7 @@
       <ol class="space-y-4 text-sm">
         <li class="flex gap-3"><span class="w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center font-bold flex-shrink-0">1</span><div><p class="font-bold">Proceeds</p><p class="text-slate-600 mt-1">現金又は<strong>受取補償の公正価値</strong>（問題指定）。</p></div></li>
         <li class="flex gap-3"><span class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold flex-shrink-0">2</span><div><p class="font-bold">Book value</p><p class="text-slate-600 mt-1">原価 − <strong>累計減価償却</strong>（土地なら通常ゼロ）。</p></div></li>
-        <li class="flex gap-3"><span class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold flex-shrink-0">3</span><div><p class="font-bold">Gain</p><p class="text-slate-600 mt-1">Proceeds − Book value（损失なら loss）。</p></div></li>
+        <li class="flex gap-3"><span class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold flex-shrink-0">3</span><div><p class="font-bold">Gain</p><p class="text-slate-600 mt-1">Proceeds − Book value（マイナスなら損失）。</p></div></li>
       </ol>
     </section>
 
@@ -84,15 +85,27 @@
     </section>
 
     <section id="process" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
-      <h2 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="message-circle" class="w-6 h-6 text-rose-500"></i> 悩みが解ける道筋</h2>
-      <div class="persona-strip"><span><strong>受講生</strong>：長いストーリー問題。</span><span><strong>コーチ</strong>：最後の2行で数字を切る。</span></div>
-      <div class="dlg-row">
-        <div class="avatar-col"><div class="avatar-frame bg-sky-50">受</div></div>
-        <div class="student-bubble mb-0"><p class="role-line">受講生</p><p class="text-sm">「税効果で gain を？」まである。</p></div>
+      <h2 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="message-circle" class="w-6 h-6 text-rose-500"></i> 悩みが解けるまで（対話）</h2>
+      <p class="text-sm text-slate-600 mb-3">先の「<strong>再取得予定の金額で益を調整しそうになる</strong>」という悩みに、会話で益の芯を当てはめます。</p>
+      <div class="persona-strip">
+        <span><strong>受講生</strong>：文章が長いと、どの数字で益を切るか散らかる。</span>
+        <span><strong>コーチ</strong>：まず<strong>補償（受取）</strong>と<strong>帳簿から落とす純額</strong>の二つに絞る。</span>
       </div>
       <div class="dlg-row">
-        <div class="avatar-col"><div class="avatar-frame bg-slate-100 text-xs">コ</div></div>
-        <div class="coach-bubble mb-0"><p class="role-line">コーチ</p><p class="text-sm">プレテキストが<strong>before income tax</strong>なら税は別勘定。語を見落とさない。</p></div>
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-sky-100 bg-sky-50 p-0" aria-hidden="true"><img src="avatars/takuma-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-top"></div></div>
+        <div class="student-bubble mb-0"><p class="role-line">たくま（受講生）</p><p class="text-sm">あとで買い戻す資産の<strong>予定価格</strong>が書いてある。益はそれで減らす？</p></div>
+      </div>
+      <div class="dlg-row">
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-slate-200 bg-slate-100 p-0" aria-hidden="true"><img src="avatars/aoi-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-center"></div></div>
+        <div class="coach-bubble mb-0"><p class="role-line">あおい先生（コーチ）</p><p class="text-sm">典型の短問では<strong>いま受け取った補償と、除却する資産の帳簿価額（原価−累計減価償却）の差</strong>が益。再取得は<strong>別の取得</strong>として読むことが多い。</p></div>
+      </div>
+      <div class="dlg-row">
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-sky-100 bg-sky-50 p-0" aria-hidden="true"><img src="avatars/takuma-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-top"></div></div>
+        <div class="student-bubble mb-0"><p class="role-line">たくま（受講生）</p><p class="text-sm">「税引前の益」とか「所得税後」とか、言葉だけ変わっている気がする。</p></div>
+      </div>
+      <div class="dlg-row">
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-slate-200 bg-slate-100 p-0" aria-hidden="true"><img src="avatars/aoi-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-center"></div></div>
+        <div class="coach-bubble mb-0"><p class="role-line">あおい先生（コーチ）</p><p class="text-sm">設問が <strong>before income tax</strong> と書いていれば、益の計算に<strong>法人税を混ぜない</strong>。税効果は別の行か別の設問で聞かれることが多いので、<strong>最後の一文</strong>で切り分ける。</p></div>
       </div>
     </section>
 

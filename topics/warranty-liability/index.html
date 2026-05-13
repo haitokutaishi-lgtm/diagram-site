@@ -17,7 +17,8 @@
     .en-stem { font-family: ui-sans-serif, system-ui, sans-serif; border-left: 3px solid #64748b; padding-left: 1rem; margin: 0.75rem 0; color: #334155; font-size: 0.875rem; line-height: 1.65; }
     .worries-box { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px solid #d97706; border-radius: 1rem; padding: 1.25rem 1.5rem; margin: 1rem 0; }
     .dlg-row { display: grid; grid-template-columns: 4.25rem 1fr; gap: 0.85rem; align-items: start; margin: 1rem 0; }
-    .avatar-frame { border-radius: 0.75rem; width: 56px; height: 56px; margin: 0 auto; display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.75rem;}
+    .avatar-frame { border-radius: 0.75rem; width: 56px; height: 56px; margin: 0 auto; display: flex; align-items: center; justify-content: center; }
+    .avatar-frame svg { flex-shrink: 0; }
     .role-line { font-size: 0.7rem; font-weight: 700; margin-bottom: 0.35rem; }
     .student-bubble .role-line { color: #c2410c; }
     .coach-bubble .role-line { color: #1d4ed8; }
@@ -43,7 +44,7 @@
         <li><a href="#worries" class="text-blue-700 hover:underline">よくある悩み</a></li>
         <li><a href="#three" class="text-blue-700 hover:underline">まず覚える3つ</a></li>
         <li><a href="#reading" class="text-blue-700 hover:underline">読む順</a></li>
-        <li><a href="#process" class="text-blue-700 hover:underline">悩みが解ける道筋</a></li>
+        <li><a href="#process" class="text-blue-700 hover:underline">悩みが解けるまで（対話）</a></li>
         <li><a href="#mc" class="text-blue-700 hover:underline">理解確認MC</a></li>
         <li><a href="#summary" class="text-blue-700 hover:underline">まとめ</a></li>
       </ul>
@@ -52,12 +53,12 @@
     <section id="worries" class="worries-box">
       <h2 class="text-lg font-bold text-amber-950 mb-3 flex items-center gap-2"><i data-lucide="coffee" class="w-5 h-5"></i> よくある悩み</h2>
       <div class="dlg-row">
-        <div class="avatar-col"><div class="avatar-frame bg-sky-50">受</div></div>
-        <div class="student-bubble mb-0"><p class="role-line">受講生</p><p class="text-sm"><strong>保証費用</strong>と<strong>引当残高</strong>のどちらを聞かれているか、問いの語が似ていて取り違える。</p></div>
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-sky-100 bg-sky-50 p-0" aria-hidden="true"><img src="avatars/takuma-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-top"></div></div>
+        <div class="student-bubble mb-0"><p class="role-line">たくま（受講生）</p><p class="text-sm"><strong>保証費用</strong>と<strong>引当残高</strong>のどちらを聞かれているか、問いの語が似ていて取り違える。</p></div>
       </div>
       <div class="dlg-row">
-        <div class="avatar-col"><div class="avatar-frame bg-slate-100 text-xs">コ</div></div>
-        <div class="coach-bubble mb-0"><p class="role-line">コーチ</p><p class="text-sm">当期に<strong>PL に落ちる額</strong>は通常「売上×率」。BS の<strong>残高</strong>は累積の箱として<strong>増減の橋渡し</strong>をする。</p></div>
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-slate-200 bg-slate-100 p-0" aria-hidden="true"><img src="avatars/aoi-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-center"></div></div>
+        <div class="coach-bubble mb-0"><p class="role-line">あおい先生（コーチ）</p><p class="text-sm">当期に<strong>損益に乗る額</strong>は多くの場合「売上×率」。貸借対照表の<strong>引当残高</strong>は、期首から当期認識と支出で<strong>増えたり減ったりする残り</strong>として捉える。</p></div>
       </div>
       <div class="worries-inner">
         <ul class="text-sm list-disc list-inside space-y-1">
@@ -87,15 +88,27 @@
     </section>
 
     <section id="process" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
-      <h2 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="message-circle" class="w-6 h-6 text-rose-500"></i> 悩みが解ける道筋</h2>
-      <div class="persona-strip"><span><strong>受講生</strong>：数字は単純。</span><span><strong>コーチ</strong>：「expense」か「balance」かで式が変わる。</span></div>
-      <div class="dlg-row">
-        <div class="avatar-col"><div class="avatar-frame bg-sky-50">受</div></div>
-        <div class="student-bubble mb-0"><p class="role-line">受講生</p><p class="text-sm">年末の<strong>liability</strong>だけ欲しいとき、売上だけ見てしまう。</p></div>
+      <h2 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="message-circle" class="w-6 h-6 text-rose-500"></i> 悩みが解けるまで（対話）</h2>
+      <p class="text-sm text-slate-600 mb-3">先の「<strong>保証費用と引当残高を取り違える</strong>」という悩みに、会話で区別します。</p>
+      <div class="persona-strip">
+        <span><strong>受講生</strong>：設問の英語が <em>expense</em> に近いか <em>liability</em> に近いかで、使う式が変わる気がする。</span>
+        <span><strong>コーチ</strong>：その通り。<strong>売上×率</strong>は多くが当期の費用（と引当の増）。<strong>期末残高</strong>は箱の増減で求める。</span>
       </div>
       <div class="dlg-row">
-        <div class="avatar-col"><div class="avatar-frame bg-slate-100 text-xs">コ</div></div>
-        <div class="coach-bubble mb-0"><p class="role-line">コーチ</p><p class="text-sm">必ず<strong>期首残高と実支出</strong>を足し引きのレールに載せる。</p></div>
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-sky-100 bg-sky-50 p-0" aria-hidden="true"><img src="avatars/takuma-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-top"></div></div>
+        <div class="student-bubble mb-0"><p class="role-line">たくま（受講生）</p><p class="text-sm">「当期の<strong>warranty expense</strong>」と「期末の <strong>estimated liability</strong>」が続けて出るとごちゃごちゃする。</p></div>
+      </div>
+      <div class="dlg-row">
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-slate-200 bg-slate-100 p-0" aria-hidden="true"><img src="avatars/aoi-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-center"></div></div>
+        <div class="coach-bubble mb-0"><p class="role-line">あおい先生（コーチ）</p><p class="text-sm">expense は<strong>この期の売上に対する見積り</strong>が中心。liability を聞かれたら<strong>期首残高 ＋ 当期に計上した分 − 当期に払った修理費</strong>の三段で考えると抜けない。</p></div>
+      </div>
+      <div class="dlg-row">
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-sky-100 bg-sky-50 p-0" aria-hidden="true"><img src="avatars/takuma-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-top"></div></div>
+        <div class="student-bubble mb-0"><p class="role-line">たくま（受講生）</p><p class="text-sm">売上だけ計算して、それを期末残高だと思いそうになる。</p></div>
+      </div>
+      <div class="dlg-row">
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-slate-200 bg-slate-100 p-0" aria-hidden="true"><img src="avatars/aoi-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-center"></div></div>
+        <div class="coach-bubble mb-0"><p class="role-line">あおい先生（コーチ）</p><p class="text-sm">それが一番の落とし穴。売上×率は<strong>箱に入れる追加分</strong>であって、箱の中身そのものではない。現金で払った分は<strong>箱から出す</strong>、までセットで見る。</p></div>
       </div>
     </section>
 
