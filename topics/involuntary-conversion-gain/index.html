@@ -26,6 +26,17 @@
     .persona-strip strong { color: #0f172a; }
     .worries-inner { background: rgba(255,255,255,.85); border: 1px solid rgba(180,83,9,.25); border-radius: 0.75rem; padding: 1rem 1.25rem; margin-top: 1rem; }
     .part-lead { font-size: 0.8rem; color: #64748b; border-left: 3px solid #94a3b8; padding-left: 0.75rem; margin-bottom: 1rem; }
+  
+    /* 対話アバター：顔が見えるよう拡大（親の overflow でクリップ） */
+    img[src*="takuma-dialog"] {
+      transform: scale(1.62);
+      transform-origin: 50% 0%;
+    }
+    img[src*="aoi-dialog"] {
+      transform: scale(1.55);
+      transform-origin: 50% 8%;
+    }
+
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800">

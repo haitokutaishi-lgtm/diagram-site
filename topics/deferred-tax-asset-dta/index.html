@@ -120,6 +120,17 @@
       background: #fafafa;
     }
     details summary { cursor: pointer; font-weight: 600; color: #1d4ed8; }
+  
+    /* 対話アバター：顔が見えるよう拡大（親の overflow でクリップ） */
+    img[src*="takuma-dialog"] {
+      transform: scale(1.62);
+      transform-origin: 50% 0%;
+    }
+    img[src*="aoi-dialog"] {
+      transform: scale(1.55);
+      transform-origin: 50% 8%;
+    }
+
   </style>
 </head>
 <body class="bg-slate-50">

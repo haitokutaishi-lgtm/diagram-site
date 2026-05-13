@@ -90,6 +90,17 @@
     .bar-split { display: flex; height: 1.25rem; border-radius: 0.35rem; overflow: hidden; margin-top: 0.5rem; font-size: 0.65rem; font-weight: 600; color: #fff; }
     .bar-nc { flex: 48; background: linear-gradient(90deg, #4f46e5, #6366f1); display: flex; align-items: center; justify-content: center; }
     .bar-c { flex: 4; background: linear-gradient(90deg, #ea580c, #f97316); display: flex; align-items: center; justify-content: center; min-width: 2.5rem; }
+  
+    /* 対話アバター：顔が見えるよう拡大（親の overflow でクリップ） */
+    img[src*="takuma-dialog"] {
+      transform: scale(1.62);
+      transform-origin: 50% 0%;
+    }
+    img[src*="aoi-dialog"] {
+      transform: scale(1.55);
+      transform-origin: 50% 8%;
+    }
+
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800">

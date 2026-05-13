@@ -29,6 +29,17 @@
     table.alloc { width: 100%; font-size: 0.875rem; border-collapse: collapse; margin-top: 0.75rem; }
     table.alloc th, table.alloc td { border: 1px solid #e2e8f0; padding: 0.5rem 0.75rem; text-align: left; }
     table.alloc th { background: #f1f5f9; }
+  
+    /* 対話アバター：顔が見えるよう拡大（親の overflow でクリップ） */
+    img[src*="takuma-dialog"] {
+      transform: scale(1.62);
+      transform-origin: 50% 0%;
+    }
+    img[src*="aoi-dialog"] {
+      transform: scale(1.55);
+      transform-origin: 50% 8%;
+    }
+
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
