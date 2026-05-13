@@ -26,18 +26,7 @@
     .persona-strip strong { color: #0f172a; }
     .worries-inner { background: rgba(255,255,255,.85); border: 1px solid rgba(180,83,9,.25); border-radius: 0.75rem; padding: 1rem 1.25rem; margin-top: 1rem; }
     .part-lead { font-size: 0.8rem; color: #64748b; border-left: 3px solid #94a3b8; padding-left: 0.75rem; margin-bottom: 1rem; }
-  
-    /* 対話アバター：顔が見えるよう拡大（親の overflow でクリップ） */
-    img[src*="takuma-dialog"] {
-      transform: scale(1.62);
-      transform-origin: 50% 0%;
-    }
-    img[src*="aoi-dialog"] {
-      transform: scale(1.55);
-      transform-origin: 50% 8%;
-    }
-
-  </style>
+</style>
 </head>
 <body class="bg-slate-50 text-slate-800">
   <header class="header-gradient text-white py-10 px-4">
@@ -64,7 +53,7 @@
     <section id="worries" class="worries-box">
       <h2 class="text-lg font-bold text-amber-950 mb-3 flex items-center gap-2"><i data-lucide="coffee" class="w-5 h-5"></i> よくある悩み</h2>
       <div class="dlg-row">
-        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-sky-100 bg-sky-50 p-0" aria-hidden="true"><img src="avatars/takuma-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-top"></div></div>
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-sky-100 bg-sky-50 p-0" aria-hidden="true"><img src="avatars/takuma-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-center"></div></div>
         <div class="student-bubble mb-0"><p class="role-line">たくま（受講生）</p><p class="text-sm"><strong>保証費用</strong>と<strong>引当残高</strong>のどちらを聞かれているか、問いの語が似ていて取り違える。</p></div>
       </div>
       <div class="dlg-row">
@@ -106,7 +95,7 @@
         <span><strong>コーチ</strong>：その通り。<strong>売上×率</strong>は多くが当期の費用（と引当の増）。<strong>期末残高</strong>は箱の増減で求める。</span>
       </div>
       <div class="dlg-row">
-        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-sky-100 bg-sky-50 p-0" aria-hidden="true"><img src="avatars/takuma-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-top"></div></div>
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-sky-100 bg-sky-50 p-0" aria-hidden="true"><img src="avatars/takuma-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-center"></div></div>
         <div class="student-bubble mb-0"><p class="role-line">たくま（受講生）</p><p class="text-sm">「当期の<strong>warranty expense</strong>」と「期末の <strong>estimated liability</strong>」が続けて出るとごちゃごちゃする。</p></div>
       </div>
       <div class="dlg-row">
@@ -114,7 +103,7 @@
         <div class="coach-bubble mb-0"><p class="role-line">あおい先生（コーチ）</p><p class="text-sm">expense は<strong>この期の売上に対する見積り</strong>が中心。liability を聞かれたら<strong>期首残高 ＋ 当期に計上した分 − 当期に払った修理費</strong>の三段で考えると抜けない。</p></div>
       </div>
       <div class="dlg-row">
-        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-sky-100 bg-sky-50 p-0" aria-hidden="true"><img src="avatars/takuma-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-top"></div></div>
+        <div class="avatar-col"><div class="avatar-frame overflow-hidden border border-sky-100 bg-sky-50 p-0" aria-hidden="true"><img src="avatars/takuma-dialog.png" alt="" width="56" height="56" class="h-full w-full object-cover object-center"></div></div>
         <div class="student-bubble mb-0"><p class="role-line">たくま（受講生）</p><p class="text-sm">売上だけ計算して、それを期末残高だと思いそうになる。</p></div>
       </div>
       <div class="dlg-row">
